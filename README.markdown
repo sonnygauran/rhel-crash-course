@@ -79,7 +79,39 @@ However, the GNOME System Monitor goes a step further by also including graphica
 
 > ![GNOME System Monitor](/images/unit_5-gnome_system_monitor2.png)
 
+4. df and du. The df command reports filesystem disk usage. du estimates the filesystem usage.
+
+> ![top](/images/unit_5-df.png)
+> ![top](/images/unit_5-du1.png)
+
 	
+## Unit 6: Manage System Software
+RPM, or the RPM Package Manager, is the default package management system for Red Hat Linux. The name RPM variously refers to the .rpm file format, files in this format, software packaged in such files, and the package manager itself. 
+
+1. Sample Query Commands
+
+    [root@genesis ~]# rpm -ql iputils
+    /bin/ping
+    /bin/ping6
+    /bin/tracepath
+    /bin/tracepath6
+    /etc/rc.d/init.d/rdisc
+    /sbin/arping
+    /sbin/ifenslave
+    /sbin/rdisc
+    /usr/sbin/arping
+
+    [root@genesis ~]# rpm -qf /bin/ping
+    iputils-20020927-46.el5
+    [root@genesis ~]# 
+
+2. To install new package,
+
+    $ rpm -i packagename.rpm
+    $ rpm -iv packagename.rpm
+    $ rpm -hiv packagename.rpm
+
+
 
 # The End
 
