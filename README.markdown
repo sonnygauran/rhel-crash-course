@@ -56,6 +56,30 @@ Right-click the Clock on the upper-right corner
 	
 > ![Home icon](/images/local-services-clock.png)
 
+## Unit 5: Manage System Resources
+What to monitor:
+
+* CPU power
+* Bandwidth
+* Memory
+* Storage
+
+
+1. free. The free command displays system memory utilization. 
+
+> ![free](/images/unit_5-free.png)
+
+2. top. The top command displays pretty much everything. CPU utilization, process statistics, memory utilization — top monitors it all. In addition, unlike the free command, top's default behavior is to run continuously; there is no need to use the watch command.
+
+> ![top](/images/unit_5_1.png)
+
+3. The GNOME System Monitor. If you are more comfortable with graphical user interfaces, the GNOME System Monitor may be more to your liking. Like top, the GNOME System Monitor displays information related to overall system status, process counts, memory and swap utilization, and process-level statistics.
+
+However, the GNOME System Monitor goes a step further by also including graphical representations of CPU, memory, and swap utilization, along with a tabular disk space utilization listing.
+
+> ![GNOME System Monitor](/images/unit_5-gnome_system_monitor2.png)
+
+	
 
 # The End
 
