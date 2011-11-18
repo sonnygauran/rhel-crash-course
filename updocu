@@ -1,8 +1,0 @@
-#!/bin/bash
-
-while :
-do
-	git pull
-	./docu
-	sleep 5
-done
