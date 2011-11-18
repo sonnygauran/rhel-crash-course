@@ -91,39 +91,1343 @@ existing files or files that will be created after <em>Save</em> or hitting <cod
 </blockquote>
 
 </section><section class=" h2 unit_4_manage_physical_storage"><h2 id="unit_4_manage_physical_storage">Unit 4: Manage Physical Storage</h2>
+<pre class=" lang- prettyprint right"><code>$ fdisk -l
+</code></pre>
 
-</section><section class=" h2 unit_5_monitor_system_resources"><h2 id="unit_5_monitor_system_resources">Unit 5: Monitor System Resources</h2>
+<p>To list available partitions</p>
+
+<blockquote>
+<p><img src="/images/fdisk-l.png" alt="Available Partitions"></p>
+</blockquote>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 unit_5_manage_system_resources"><h2 id="unit_5_manage_system_resources" class=" after-pre">Unit 5: Manage System Resources</h2>
+
+<p>What to monitor:</p>
+
+<ul>
+<li>CPU power</li>
+<li>Bandwidth</li>
+<li>Memory</li>
+<li><p>Storage</p></li>
+<li><p>free. The free command displays system memory utilization. </p></li>
+</ul>
+<blockquote>
+<p><img src="/images/unit_5-free.png" alt="free"></p>
+</blockquote>
+
+<ol>
+<li>top. The top command displays pretty much everything. CPU utilization, process statistics, memory utilization &mdash; top monitors it all. In addition, unlike the free command, top's default behavior is to run continuously; there is no need to use the watch command.</li>
+</ol>
+<blockquote>
+<p><img src="/images/unit_5_1.png" alt="top"></p>
+</blockquote>
+
+<ol>
+<li>The GNOME System Monitor. If you are more comfortable with graphical user interfaces, the GNOME System Monitor may be more to your liking. Like top, the GNOME System Monitor displays information related to overall system status, process counts, memory and swap utilization, and process-level statistics.</li>
+</ol>
+<p>However, the GNOME System Monitor goes a step further by also including graphical representations of CPU, memory, and swap utilization, along with a tabular disk space utilization listing.</p>
+
+<blockquote>
+<p><img src="/images/unit_5-gnome_system_monitor2.png" alt="GNOME System Monitor"></p>
+</blockquote>
+
+<ol>
+<li>df and du. The df command reports filesystem disk usage. du estimates the filesystem usage.</li>
+</ol>
+<blockquote>
+<p><img src="/images/unit_5-df.png" alt="top"><img src="/images/unit_5-du1.png" alt="top"></p>
+</blockquote>
 
 </section><section class=" h2 unit_6_manage_system_software"><h2 id="unit_6_manage_system_software">Unit 6: Manage System Software</h2>
 
-</section><section class=" h2 unit_7_getting_started_with_bash"><h2 id="unit_7_getting_started_with_bash">Unit 7: Getting Started with <code>bash</code>
+<p>RPM, or the RPM Package Manager, is the default package management system for Red Hat Linux. The name RPM variously refers to the .rpm file format, files in this format, software packaged in such files, and the package manager itself. </p>
+
+<ol>
+<li>
+<p>Sample Query Commands</p>
+
+<pre class=" lang- prettyprint"><code>[root@genesis ~]# rpm -ql iputils
+/bin/ping
+/bin/ping6
+/bin/tracepath
+/bin/tracepath6
+/etc/rc.d/init.d/rdisc
+/sbin/arping
+/sbin/ifenslave
+/sbin/rdisc
+/usr/sbin/arping
+
+[root@genesis ~]# rpm -qf /bin/ping
+iputils-20020927-46.el5
+
+[root@genesis ~]# 
+
+[percy@linux-mlvx ~]$ rpm -qi iputils
+Name        : iputils                      Relocations: /usr 
+Version     : ss021109                          Vendor: openSUSE
+Release     : 300.1.1                       Build Date: Thu 29 Jul 2010 12:37:18 AM PHT
+Install Date: Wed 12 Jan 2011 05:06:10 PM PHT      Build Host: build33
+Group       : Productivity/Networking/Other   Source RPM: iputils-ss021109-300.1.1.src.rpm
+Size        : 223310                           License: BSD3c ; GPLv2+
+Signature   : RSA/8, Thu 29 Jul 2010 12:37:35 AM PHT, Key ID b88b2fd43dbdc284
+Packager    : http://bugs.opensuse.org
+URL         : ftp://ftp.tux.org/people/alexey-kuznetsov/ip-routing
+Summary     : IPv4and IPv6 Networking Utilities
+Description :
+This package contains some small network tools for IPv4 and IPv6 like
+rdisc, ping6, traceroute6, tracepath, and tracepath6.
+
+Authors:
+--------
+    Alexey Kuznetsov &lt;kuznet@ms2.inr.ac.ru&gt;
+Distribution: openSUSE 11.3
+
+[percy@linux-mlvx ~]$ 
+</code></pre>
+</li>
+<li>
+<p>To install new package,</p>
+
+<pre class=" lang- prettyprint"><code># rpm -i packagename.rpm
+# rpm -iv packagename.rpm
+# rpm -hiv packagename.rpm
+</code></pre>
+</li>
+<li><p>To update package,
+    # rpm -u packagename.rpm
+    # rpm -uv packagename.rpm
+    # rpm -huv packagename.rpm</p></li>
+<li><p>To remove package,
+    # rpm -e packagename.rpm</p></li>
+</ol></section><section class=" h2 unit_7_getting_started_with_bash"><h2 id="unit_7_getting_started_with_bash">Unit 7: Getting Started with <code>bash</code>
 </h2>
 
-</section><section class=" h2 unit_8_establish_network_connectivity"><h2 id="unit_8_establish_network_connectivity">Unit 8: Establish Network Connectivity</h2>
+<p>Basically, when you start your terminal. The program (commonly known as the '<em>shell</em>') that executes your commands is by default, <code>bash</code>.</p>
 
-</section><section class=" h2 unit_9_administer_users_and_groups"><h2 id="unit_9_administer_users_and_groups">Unit 9: Administer Users and Groups</h2>
+<section class=" h3 checking_commands"><h3 id="checking_commands">Checking Commands</h3>
+<pre class=" lang- prettyprint right"><code># Substitute &lt;command&gt; with the command you want to check
+# Syntax: `man &lt;command&gt;`
+$ man man
+$ man bash
+</code></pre>
+
+<p>To check any command's documentation.</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>$ man --help
+$ bash --help
+</code></pre>
+<p class=" after-pre">In some cases, a summary can be available through a <em>flag</em>.</p>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h3 check_your_shell"><h3 id="check_your_shell" class=" after-pre">Check your shell</h3>
+<pre class=" lang- prettyprint right"><code>$ echo $0
+$ echo $SHELL
+</code></pre>
+
+<p>You can check what shell you're using by the following commands.</p>
+
+<br class="post-pre">
+
+<section class=" after-pre h5 from_bash_shell_scripting_-_10_seconds_guide"><h5 class=" after-pre">From <a href="http://ow.ly/7yc0J">Bash Shell Scripting - 10 Seconds Guide</a>
+</h5>
+
+<p>This Bash shell scripting guide is not a detailed study but a quick reference to the BASH syntax. So lets begin...</p>
+
+</section></section><section class=" h3 common_environment_variables"><h3 id="common_environment_variables">Common Environment Variables</h3>
+<pre class=" lang- prettyprint right"><code>$ echo $PATH
+</code></pre>
+
+<p><em>PATH</em> - Sets the search path for any executable command. Similar to the PATH variable in MSDOS.</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>$ echo $HOME
+</code></pre>
+<p class=" after-pre"><em>HOME</em> - Home directory of the user.</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>$ echo $MAIL
+</code></pre>
+<p class=" after-pre"><em>MAIL</em> - Contains the path to the location where mail addressed to the user is stored. </p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>$ echo $IFS | od -bc
+</code></pre>
+<p class=" after-pre"><em>IFS</em> - Contains a string of characters which are used as word seperators in the command line. The string normally consists of the space, tab and the newline characters. To see them you will have to do an octal dump as follows:</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code># Primary Prompt
+$ echo $PS1
+# Secondary Prompt
+$ echo $PS2
+
+# To access Secondary Prompt - PS2
+$ ls | # ... and press enter.
+</code></pre>
+<p class=" after-pre"><em>PS1</em> and <em>PS2</em> - Primary and secondary prompts in bash. PS1 is set to $ by default and PS2 is set to '&gt;' . To see the secondary prompt, just run the command :</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>$ echo $USER
+</code></pre>
+<p class=" after-pre"><em>USER</em> - User login name.</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>$ echo $TERM
+</code></pre>
+<p class=" after-pre"><em>TERM</em> - indicates the terminal type being used. This should be set correctly for editors like Vim to work correctly.</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>$ echo $SHELL
+</code></pre>
+<p class=" after-pre"><em>SHELL</em> - Determines the type of shell that the user sees on logging in.</p>
+
+<br class="post-pre">
+
+<section class=" after-pre h4 some_bash_shell_scripting_rules"><h4 class=" after-pre">Some Bash Shell Scripting Rules</h4>
+<pre class=" lang- prettyprint right"><code>$ chmod ugo+x your_shell_script.sh
+</code></pre>
+
+<p>The first line in your script must be <code>#!/bin/bash</code>
+ &gt; ... that is a # (Hash) followed by a ! (bang) followed by the path of the shell. This line lets the environment know the file is a shell script and the location of the shell.</p>
+
+<p>Before executing your script, you should make the script executable. You do it by using the following command:</p>
+
+<br class="post-pre">
+
+<p class=" after-pre">The name of your shell script must end with a <code>.sh</code>. This lets the user know that the file is a shell script. This is not compulsary but is the norm.</p>
+
+</section></section><section class=" h3 conditional_statements"><h3 id="conditional_statements">Conditional Statements</h3>
+
+<section class=" h4 if_statement"><h4>
+<code>If</code> Statement</h4>
+<pre class=" lang- prettyprint right"><code># Syntax
+if condition_is_true
+then
+   execute commands
+else
+   execute commands
+fi
+</code></pre>
+
+<p>The <code>if</code> statement evaluates a condition which accompanies its command line.
+syntax:</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>if condition_is_true
+then
+   execute commands
+elif another_condition_is_true
+then
+   execute commands
+else
+   execute commands
+fi
+</code></pre>
+<p class=" after-pre"><code>if</code> condition also permits multiway branching. That is you can evaluate more conditions if the previous condition fails.</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>if grep "linuxhelp" thisfile.html
+then
+   echo "Found the word in the file"
+else
+   echo "Sorry no luck!"
+fi
+</code></pre>
+<p class=" after-pre">Example :</p>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h4 if_s_companion_-_test"><h4 class=" after-pre">
+<code>If</code>'s Companion - <code>test</code>
+</h4>
+<pre class=" lang- prettyprint right"><code>test $d -eq 25 &amp;&amp; echo $d
+</code></pre>
+
+<p>test is an internal feature of the shell. <code>test</code> evaluates the condition placed on its right, and returns either a true or false exit status. For this purpose, 'test' uses certain operators to evaluate the condition. They are as follows:</p>
+
+<section class=" h5 relational_operators"><h5>Relational Operators</h5>
+
+<ul>
+<li>-eq - Equal to</li>
+<li>-lt - Less than</li>
+<li>-gt - Greater than</li>
+<li>-ge - Greater than or Equal to</li>
+<li>-le - Less than or Equal to</li>
+</ul></section><section class=" h5 file_related_tests"><h5>File related tests</h5>
+
+<ul>
+<li>-f file - True if file exists and is a regular file.</li>
+<li>-r file - True if file exists and is readable.</li>
+<li>-w file - True if file exists and is writable.</li>
+<li>-x file - True if file exists and is executable.</li>
+<li>-d file - True if file exists and is a directory.</li>
+<li>-s file - True if file exists and has a size greater than zero.</li>
+</ul></section><section class=" h5 string_tests"><h5>String tests</h5>
+
+<ul>
+<li>-n str - True if string str is not a null string.</li>
+<li>-z str - True if string str is a null string.</li>
+<li>str1 == str2 - True if both strings are equal.</li>
+<li>str - True if string str is assigned a value and is not null.</li>
+<li>str1 != str2 - True if both strings are unequal.</li>
+<li>-s file - True if file exists and has a size greater than zero.</li>
+</ul>
+<p>Test also permits the checking of more than one expression in the same line.</p>
+
+<ul>
+<li>-a  - Performs the AND function</li>
+<li>-o  - Performs the OR function</li>
+</ul>
+<p>A few Example snippets of using test</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>test $s -lt 50 &amp;&amp; do_something
+if [ $d -eq 25 ]
+then
+echo $d
+fi
+</code></pre>
+<p class=" after-pre">... which means, if the value in the variable d is equal to 25, print the value. Otherwise don't print anything.</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>if [ $str1 == $str2 ]
+then
+do something
+fi
+
+if [ -n "$str1" -a -n "$str2" ]
+then
+echo 'Both $str1 and $str2 are not null'
+fi
+</code></pre>
+<p class=" after-pre">In this example, I have used square brackets instead of the keyword test - which is another way of doing the same thing.</p>
+
+<br class="post-pre">
+
+<p class=" after-pre">... here, I have checked if both strings are not null then execute the echo command.</p>
+
+<h6>Things to remember while using test</h6>
+
+<p>If you are using square brackets [] instead of test, then care should be taken to insert a space after the [ and before the ].
+test is confined to integer values only. Decimal values are simply truncated.
+Do not use wildcards for testing string equality - they are expanded by the shell to match the files in your directory rather than the string.</p>
+
+</section></section><section class=" h4 case_statement"><h4>Case Statement</h4>
+<pre class=" lang- prettyprint right"><code># Syntax:
+case expression in
+pattern1) execute commands ;;
+pattern2) execute commands ;;
+...
+esac
+</code></pre>
+
+<p>Case statement is the second conditional offered by the shell.</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>...
+echo "Enter your option : "
+read i;
+
+case $i in
+1) ls -l ;;
+2) ps -aux ;;
+3) date ;;
+4) who ;;
+5) exit
+esac
+</code></pre>
+<p class=" after-pre">The keywords here are in, case and esac. The ';;' is used as option terminators. The construct also uses ')' to delimit the pattern from the action.</p>
+
+<section class=" h5 example"><h5>Example:</h5>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code># Here is another example:
+case `date |cut -d" " -f1` in
+Mon) commands ;;
+Tue) commands ;;
+Wed) commands ;;
+...
+esac
+</code></pre></section><section class=" after-pre h5 note"><h5 class=" after-pre">Note</h5>
+
+<p>The last case option need not have ;; but you can provide them if you want.</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>...
+echo "Do you wish to continue? (y/n)"
+read ans
+
+case $ans in
+Y|y) ;;
+[Yy][Ee][Ss]) ;;
+N|n) exit ;;
+[Nn][Oo]) exit ;;
+*) echo "Invalid command"
+esac
+</code></pre>
+<p class=" after-pre">Case can also match more than one pattern with each option.You can also use shell wild-cards for matching patterns.</p>
+
+<br class="post-pre">
+
+<p class=" after-pre">In this case, if you enter YeS, YES,yEs and any of its combinations, it will be matched.</p>
+
+<p>This brings us to the end of conditional statements.</p>
+
+</section></section></section><section class=" h3 looping_statements"><h3 id="looping_statements">Looping Statements</h3>
+
+<section class=" h4 while_loop"><h4>while loop</h4>
+<pre class=" lang- prettyprint right"><code>while condition_is_true
+do
+execute commands
+done
+</code></pre>
+
+<p>Syntax</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>while [ $num -gt 100 ]
+do
+sleep 5
+done
+
+while :
+do
+execute some commands
+done
+</code></pre>
+<p class=" after-pre">Example:</p>
+
+<br class="post-pre">
+
+<p class=" after-pre">The code implements a infinite loop. You could also write 'while true' instead of 'while :' .
+Here I would like to introduce two keywords with respect to looping conditionals. They are break and continue.</p>
+
+<ul>
+<li>
+<code>break</code> - This keyword causes control to break out of the loop.</li>
+<li>
+<code>continue</code> - This keyword will suspend the execution of all statements following it and switches control to the top of the loop for the next iteration.</li>
+</ul></section><section class=" h4 until_loop"><h4>until loop</h4>
+<pre class=" lang- prettyprint right"><code># Syntax
+until false
+do
+execute commands
+done
+</code></pre>
+
+<p>Until complements while construct in the sense that the loop body here is executed repeatedly as long as the condition remains false.</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>...
+until [ -r myfile ]
+do
+sleep 5
+done
+</code></pre>
+<p class=" after-pre">Example:</p>
+
+<br class="post-pre">
+
+<p class=" after-pre">The code is executed repeatedly until the file myfile can be read.</p>
+
+</section><section class=" h4 for_loop"><h4>for loop</h4>
+<pre class=" lang- prettyprint right"><code>for variable in list
+do
+execute commands
+done
+</code></pre>
+
+<p>Syntax</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>...
+for x in 1 2 3 4 5
+do
+echo "The value of x is $x";
+done
+</code></pre>
+<p class=" after-pre">Example</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>for var in $PATH $MAIL $HOME
+do
+echo $var
+done
+</code></pre>
+<p class=" after-pre">Here the list contains 5 numbers 1 to 5. Here is another example:</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>...
+for file in *.java
+do
+javac $file
+done
+</code></pre>
+<p class=" after-pre">Suppose you have a directory full of java files and you want to compile those. You can write a script like this:</p>
+
+<br class="post-pre">
+
+<section class=" after-pre h5 note"><h5 class=" after-pre">Note</h5>
+
+<p>You can use wildcard expressions in your scripts.</p>
+
+</section></section></section><section class=" h3 special_symbols_used_in_bash_scripting"><h3 id="special_symbols_used_in_bash_scripting">Special Symbols Used In BASH Scripting</h3>
+<pre class=" lang- prettyprint right"><code>$ ./my_script.sh linux is a robust OS
+</code></pre>
+
+<ul>
+<li>
+<code>$*</code> - This denotes all the parameters passed to the script at the time of its execution. Which includes $1, $2 and so on.</li>
+<li>
+<code>$0</code> - Name of the shell script being executed.</li>
+<li>
+<code>$#</code> - Number of arguments specified in the command line.</li>
+<li>
+<code>$?</code> - Exit status of the last command.</li>
+</ul>
+<p>The symbols are known as positional parameters. Let me explain the positional parameters with the aid of an example. Suppose I have a shell script called <code>my_script.sh</code> . Now I execute this script in the command line as follows :</p>
+
+<br class="post-pre">
+
+<p class=" after-pre">... as you can see, I have passed 5 parameters to the script. In this scenario, the values of the positional parameters are as follows:</p>
+
+<ul>
+<li>
+<code>$*</code> - will contain the values 'linux','is','a','robust','OS'.</li>
+<li>
+<code>$0</code> - will contain the value <code>my_script.sh</code> - the name of the script being executed.</li>
+<li>
+<code>$#</code> - contains the value 5 - the total number of parameters.</li>
+<li>
+<code>$$</code> - contains the process ID of the current shell. You can use this parameter while giving unique names to any temporary files that you create at the time of execution of the shell.</li>
+<li>
+<code>$1</code> - contains the value 'linux'</li>
+<li>
+<code>$2</code> - contains the value 'is' ... and so on.</li>
+</ul></section><section class=" h3 the_set_and_shift_statements"><h3 id="the_set_and_shift_statements">The Set And Shift Statements</h3>
+<pre class=" lang- prettyprint right"><code>$ set `date`
+$ echo $1
+$ echo $*
+$ echo $#
+$ echo $2
+</code></pre>
+
+<p><code>set</code> - Lets you associate values with these positional parameters .</p>
+
+<p>For example, try this:</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>$ set `date`
+$ echo $1 $2 $3
+$ shift
+$ echo $1 $2 $3
+$ shift
+$ echo $1 $2 $3
+</code></pre>
+<p class=" after-pre"><code>shift</code> - transfers the contents of a positional parameter to its immediate lower numbered one. This goes on as many times it is called.</p>
+
+<p>Example :</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>$ echo $$
+2667
+</code></pre>
+<p class=" after-pre">To see the process Id of the current shell, try this:</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>$ ps -f |grep bash
+</code></pre>
+<p class=" after-pre">Validate that it is the same value by executing the following command:</p>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h3 make_your_bash_shell_script_interactive"><h3 id="make_your_bash_shell_script_interactive" class=" after-pre">Make Your BASH Shell Script Interactive</h3>
+
+<section class=" h4 read_statement"><h4>
+<code>read</code> statement</h4>
+<pre class=" lang- prettyprint right"><code>#!/bin/sh
+echo "Enter your name : "
+read name
+echo "Hello $name , Have a nice day."
+</code></pre>
+
+<p>Make your shell script interactive. <code>read</code> will let the user enter values while the script is being executed. When a program encounters the read statement, the program pauses at that point. Input entered through the keyboard id read into the variables following read, and the program execution continues.
+Eg:</p>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h4 note"><h4 class=" after-pre">Note:</h4>
+<pre class=" lang- prettyprint right"><code>$ echo $USER
+telupay
+</code></pre>
+
+<p>To see what are the values held by the above environment variables, just do an echo of the name of the variable preceeded with a $. For example, if I do the following:</p>
+
+<br class="post-pre">
+
+</section></section></section><section class=" after-pre h2 unit_8_establish_network_connectivity"><h2 id="unit_8_establish_network_connectivity" class=" after-pre">Unit 8: Establish Network Connectivity</h2>
+
+<section class=" h3 configuration_tools"><h3 id="configuration_tools">Configuration tools</h3>
+
+<p>There are many network configuration tools today. They are:</p>
+
+<ul>
+<li>
+<code>netconf</code> - A GUI interactive interface </li>
+<li>
+<code>linuxconf</code> - A GUI interactive interface, includes <code>netconf</code> configuration.</li>
+<li>
+<code>netconfig</code> - A GUI step by step interface</li>
+<li>
+<code>ifconfig</code> - A text based program to configure the network interface. Type <code>man ifconfig</code> for info.</li>
+</ul>
+<p>These programs will modify values in the following files:</p>
+
+<ul>
+<li>
+<code>/etc/sysconfig/network</code> - Defines your network and some of its characteristics.</li>
+<li>
+<code>/etc/HOSTNAME</code> - Shows the host name of this host. IF your name is "myhost" then that is exactly the text this file will contain.</li>
+<li>
+<code>/etc/resolv.conf</code> - Specifies the domain to be searched for host names to connect to, the nameserver address, and the search order for the nameservers.</li>
+<li>
+<code>/etc/host.conf</code> - Specifies the order nameservice looks to resolve names.</li>
+<li>
+<code>/etc/hosts</code> - Shows addresses and names of local hosts.</li>
+<li>
+<code>/etc/networks</code> - Provides a database of network names with network addresses similar to the <code>/etc/hosts</code> file. This file is not required for operation.</li>
+<li>
+<code>/etc/sysconfig/network-scripts/ifcfg-eth*</code> - There is a file for each network interface. This file contains the IP address of the interface and many other setup variables.</li>
+</ul></section><section class=" h3 analysis_tools"><h3 id="analysis_tools">Analysis Tools</h3>
+
+<ul>
+<li>
+<code>netstat</code> - Displays information about the systems network connections, including port connections, routing tables, and more. The command <code>netstar -r</code> will display the routing table.</li>
+<li>
+<code>traceroute</code> - This command can be used to determine the network route from your computer to some other computer on your network or the internet. To use it you can type <code>route &lt;IPaddress&gt;</code> of the computer you want to see the route to.</li>
+<li>
+<code>nslookup</code> - Used to query DNS servers for information about hosts.</li>
+<li>
+<code>arp</code> - This program lets the user read or modify their arp cache.</li>
+<li>
+<code>tcpdump</code> - This program allows the user to see TCP traffic on their network.</li>
+<li>
+<code>dig(1)</code> - Send domain name query packets to name servers for debugging or testing.</li>
+</ul></section><section class=" h3 manual_configuration"><h3 id="manual_configuration">Manual Configuration</h3>
+<pre class=" lang- prettyprint right"><code>`ifconfig eth0 192.168.1.100 netmask 255.255.255.0 up`.
+</code></pre>
+
+<p>You can use one of the above tools or configure the network the old fashioned way as follows:</p>
+
+<p>First to use networking on any permanent basis you should setup the file <code>/etc/sysconfig/network</code> similar to the example shown:
+Assign an ip address with</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>`route add -net 192.168.0.0 netmask 255.255.255.0 eth0`.
+</code></pre>
+<p class=" after-pre">Tell your machine that a hub is ready for information with the command</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>route add default gw 192.168.1.1 eth0
+</code></pre>
+<p class=" after-pre">To contact hosts outside your network if a machine with IP address <code>192.168.1.1</code> is the gateway use the command</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>route add default ppp0
+# The word `default` says if the packet
+#    is not for a machine on your local network,
+#    send it to the default device.
+</code></pre>
+<p class=" after-pre">If using a dialup connection use the command</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>$ ls /etc/sysconfig/network-scripts/ifcfg-eth*
+</code></pre>
+<p class=" after-pre">These settings are not permanent, but go away the next time you boot. They are normally set up in the directory <code>/etc/sysconfig/network-scripts</code>.
+Add the network interface to the file <code>/etc/sysconfig/network-scripts/ifcfg-eth*</code>.</p>
+
+<br class="post-pre">
+
+<p class=" after-pre">For example the file <code>ifcfg-eth0</code> if for the first ethernet interface,
+<code>ifcfg-eth1</code> for the second, ifcfg-lo is for the local interface.</p>
+
+<p>An example output:</p>
+
+<blockquote>
+<p><img src="/images/ifcfg-eth0.png" alt="Eth0"></p>
+</blockquote>
+
+<p>Unless you know what you're doing it is best to use a network configuration tool.</p>
+
+</section><section class=" h3 networking_file_formats_examples_and_considerations"><h3 id="networking_file_formats_examples_and_considerations">Networking file formats, examples and considerations</h3>
+<pre class=" lang- prettyprint right"><code>NETWORKING=yes
+FORWARD_IPV4=false
+HOSTNAME=mymachine.mycompany.com
+DOMAINNAME=mycompany.com
+GATEWAY=192.168.1.1
+GATEWAYDEV=eth0
+</code></pre>
+
+<p>Below are listed some more in depth information about the networking files.</p>
+
+<ul>
+<li><code>/etc/sysconfig/network</code></li>
+</ul>
+<blockquote>
+<p>The <code>/etc/inittab</code> file contains the entry "si::sysinit:/etc/rc.d/rc.sysinit" which causes the system at startup to run the <code>rc.sysinit</code> script. The <code>rc.sysinit</code> file expects to find the file <code>/etc/sysconfig/network</code> if networking is to be enabled.</p>
+</blockquote>
+
+<p>The network file looks like this:</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>127.0.0.1   localhost   localhost.localdomain
+192.168.1.100   mymachine.mycompany.com mymachine
+</code></pre>
+<p class=" after-pre">Where <code>GATEWAYDEV</code> is the network interface card that is attached to the network the gateway machine is on. The <code>GATEWAY</code> is the actual IP address of the gateway machine.</p>
+
+<p><code>/etc/hosts</code> - Defines local hosts.</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code># /etc/protocols:
+# $Id: protocols,v 1.1 1995/02/24 01:09:41 imurdock Exp $
+#
+# Internet (IP) protocols
+#
+#   from: @(#)protocols 5.1 (Berkeley) 4/17/89
+#
+# Updated for NetBSD based on RFC 1340, Assigned Numbers (July 1992).
+
+ip  0   IP      # internet protocol, pseudo protocol number
+icmp    1   ICMP        # internet control message protocol
+igmp    2   IGMP        # Internet Group Management
+ggp 3   GGP     # gateway-gateway protocol
+ipencap 4   IP-ENCAP    # IP encapsulated in IP (officially ``IP'')
+st  5   ST      # ST datagram mode
+tcp 6   TCP     # transmission control protocol
+egp 8   EGP     # exterior gateway protocol
+pup 12  PUP     # PARC universal packet protocol
+udp 17  UDP     # user datagram protocol
+hmp 20  HMP     # host monitoring protocol
+xns-idp 22  XNS-IDP     # Xerox NS IDP
+rdp 27  RDP     # "reliable datagram" protocol
+iso-tp4 29  ISO-TP4     # ISO Transport Protocol class 4
+xtp 36  XTP     # Xpress Tranfer Protocol
+ddp 37  DDP     # Datagram Delivery Protocol
+idpr-cmtp   39  IDPR-CMTP   # IDPR Control Message Transport
+rspf    73  RSPF        #Radio Shortest Path First.
+vmtp    81  VMTP        # Versatile Message Transport
+ospf    89  OSPFIGP     # Open Shortest Path First IGP
+ipip    94  IPIP        # Yet Another IP encapsulation
+encap   98  ENCAP       # Yet Another IP encapsulation
+</code></pre>
+<p class=" after-pre"><code>/etc/services</code> - Internet network services list. It associates port numbers with names of services. The file contains three fields which are name, port/protocol, and aliases with an optional comment.</p>
+
+<p><code>/etc/protocols</code> - Describes DARPA internet protocols available from the TCP/IP subsystem. Maps protocol ID numbers to protocol names. It includes protocol name, number, and aliases. The protocol file on my system:</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>domain mycompany.com
+search mycompany.com mynet.net
+nameserver 192.168.1.100
+nameserver 192.168.199.1
+nameserver 192.168.1.10
+</code></pre>
+<p class=" after-pre"><code>/etc/named.conf</code> - Used for domain name service to configure named. Other files used are dependent on this file. This file is explained further in the DNS section
+<code>/etc/resolv.conf</code> - Specifies the domain to be searched for host names to connect to, the nameserver address, and the search order for the nameservers.</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>order hosts, bind
+multi on
+nospoof on
+</code></pre>
+<p class=" after-pre">The third line specifies that DNS should be tried on my machine first then use the normal nameserver on the fifth line. The fourth line specifies that my machine is running nameservices on another network which is using interface <code>192.168.199.1</code>. This assumes the nameserver is set up on my machine which is explained in another section.</p>
+
+<p><code>/etc/host.conf</code> - Specifies the order nameservice looks to resolve names. An example file:</p>
+
+<br class="post-pre">
+
+<p class=" after-pre">The order specifies that when resolving names to first look in the <code>/etc/host</code> file, then use BIND8 (DNS) to resolve the name. The line "multi on" specifies that all valid addresses for a host found in the hosts file should be returned.</p>
+
+<p>The files in <code>/etc/sysconfig/network-scripts</code> control your network interfaces. The network interface file is described above in the section "Manual Configuration". If you want or need more in depth knowledge about how these files are used, you will need to read the document "How Linux Works CTDP Guide" or "The CTDP Linux Startup Manual". Otherwise you will need to analyze the system startup scripts which is no small task.</p>
+
+</section></section><section class=" h2 unit_9_administer_users_and_groups"><h2 id="unit_9_administer_users_and_groups">Unit 9: Administer Users and Groups</h2>
+<pre class=" lang- prettyprint right"><code>    groupadd 
+    groupmod
+    groupdel 
+</code></pre>
+
+<p>UNIX-standard methods of adding, deleting, and modifying user groups:</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>    useradd
+    usermod
+    userdel
+</code></pre>
+<p class=" after-pre">UNIX-standard methods of adding, deleting and modifying user accounts:</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>    gpasswd 
+</code></pre>
+<p class=" after-pre">UNIX-standard method of administering the /etc/group file.</p>
+
+<br class="post-pre">
+
+<p class=" after-pre">Managing users and groups can be a tedious task, but Red Hat Enterprise Linux provides tools and conventions to make their management easier.
+The easiest way to manage users and groups is through the graphical application, User Manager (system-config-users). </p>
+
+<blockquote>
+<p><img src="/images/ug1.png" alt="User and Groyp Management"></p>
+
+<p><img src="/images/ug2.png" alt="User and Groyp Management"></p>
+
+<p><img src="/images/ug3.png" alt="User and Groyp Management"></p>
+
+<p><img src="/images/ug4.png" alt="User and Groyp Management"></p>
+
+<p><img src="/images/ug5.png" alt="User and Groyp Management"></p>
+
+<p><img src="/images/ug6.png" alt="User and Groyp Management"></p>
+</blockquote>
 
 </section><section class=" h2 unit_10_manage_files_from_the_command_line"><h2 id="unit_10_manage_files_from_the_command_line">Unit 10: Manage Files from the Command Line</h2>
 
-</section><section class=" h2 unit_11_secure_file_access"><h2 id="unit_11_secure_file_access">Unit 11: Secure File Access</h2>
+<p>Red Hat Enterprise Linux uses the Filesystem Hierarchy Standard (FHS) file system structure, which defines the names, locations, and permissions for many file types and directories.</p>
 
-</section><section class=" h2 unit_12_configure_general_services"><h2 id="unit_12_configure_general_services">Unit 12: Configure General Services</h2>
+<p>The FHS document is the authoritative reference to any FHS-compliant file system, but the standard leaves many areas undefined or extensible. This section is an overview of the standard and a description of the parts of the file system not covered by the standard.</p>
 
-</section><section class=" h2 unit_13_install_linux_graphically"><h2 id="unit_13_install_linux_graphically">Unit 13: Install Linux Graphically</h2>
+<p>The two most important elements of FHS compliance are:</p>
+
+<ul>
+<li><p>Compatibility with other FHS-compliant systems</p></li>
+<li><p>The ability to mount a <code>/usr/</code> partition as read-only. This is especially crucial, since <code>/usr/</code> contains common executables and should not be changed by users. In addition, since <code>/usr/</code> is mounted as read-only, it should be mountable from the CD-ROM drive or from another machine via a read-only NFS mount.</p></li>
+</ul>
+<p>Filesystem Heirarchy Organization</p>
+
+<ul>
+<li>
+<code>/boot</code> contains the files required to boot the system</li>
+<li>
+<code>/home</code> contains the user files (ie documents, etc)</li>
+<li>
+<code>/var</code> is for variable data files, which include spool directories/files, logging data, transient/temporary files, and the like.</li>
+<li>
+<code>/etc</code> is usually reserved for configuration files that are local to the machine. It shouyld not contain binaries or any executable files.</li>
+<li>
+<code>/usr</code> The <code>/usr/</code> directory is for files that can be shared across multiple machines. The <code>/usr/</code> directory is often on its own partition and is mounted read-only.</li>
+<li>
+<code>/lib</code> should only contain libraries needed to execute the binaries. This is the repository for the shared objects.</li>
+<li>
+<code>/media</code> contains the subdirectories used as mount points for removable media such as USB drives, DVS's, etc.</li>
+<li>
+<code>/mnt</code> is reserved for temporarily mounted filesystems.</li>
+<li>
+<code>/opt</code> is normally reserved for software and add-on packages that are not part of the default installation. A package that installs to /opt/ creates a directory bearing its name, e.g. <code>/opt/packagename/</code>. In most cases, such packages follow a predictable subdirectory structure; most store their binaries in <code>/opt/packagename/bin/</code> and their man pages in <code>/opt/packagename/man/</code>
+</li>
+<li>
+<code>/sbin</code> stores binaries essential for booting, restoring, recovering, or repairing the system. The binaries in <code>/sbin/</code> require root privileges to use. In addition, <code>/sbin/</code> contains binaries used by the system before the <code>/usr/</code> directory is mounted; any system utilities used after <code>/usr/</code> is mounted is typically placed in <code>/usr/sbin/</code>
+</li>
+<li>
+<code>/srv</code> contains site-specific data served by a Red Hat Enterprise Linux system. This directory gives users the location of data files for a particular service, such as FTP, WWW, or CVS.</li>
+<li>
+<code>/sys</code> The <code>/sys/</code> directory utilizes the new sysfs virtual file system specific to the 2.6 kernel. With the increased support for hot plug hardware devices in the 2.6 kernel, the <code>/sys/</code> directory contains information similar to that held by /proc/, but displays a hierarchical view device information specific to hot plug devices.</li>
+<li>
+<code>/dev</code> contains the device nodes that represent the physical devices attached to the system or virtual devices provided by the kernel</li>
+<li>
+<code>/proc</code> contains special files that either extract information from the kernel or send information to it. </li>
+<li>The swap partitions which are used to support virtual memory. In other words, data is written to a swap partition when there is not enough RAM to store the data your system is processing. Recommended swap sizing is:
+
+<ul>
+<li>4G RAM or less : at least 2G swap space</li>
+<li>4G - 16G RAM : at least 4G swap space</li>
+<li>16G - 64G RAM : at least 8G swap space</li>
+<li>64G - 256G RAM : at least 16G swap space</li>
+<li>256G - 512G RAM : at least 32G swap space</li>
+</ul>
+</li>
+</ul>
+<p>Common filesystem utilities:</p>
+
+<ul>
+<li>The <code>df</code> command reports the system's disk space usage. </li>
+<li>The <code>du</code> command displays the estimated amount of space being used by files in a directory, displaying the disk usage of each subdirectory. The last line in the output of du shows the total disk usage of the directory; to see only the total disk usage of a directory in human-readable format, use <code>du -hs</code>
+</li>
+<li>The <code>ls</code> lists the directory content.</li>
+<li>The <code>touch</code> changes file timestamp.</li>
+<li>The <code>find</code> command search for a file in a directory hierarchy.</li>
+<li>Other common text file utilities include: <code>cat</code>, <code>tac</code>, <code>grep</code>, <code>sed</code>, <code>awk</code>, <code>more</code>, <code>less</code>
+</li>
+</ul></section><section class=" h2 unit_11_secure_file_access"><h2 id="unit_11_secure_file_access">Unit 11: Secure File Access</h2>
+<pre class=" lang- prettyprint right"><code># Syntax
+$ chmod [ugoa][+-=]&lt;permissions&gt; filename
+</code></pre>
+
+<p>You can limit the files that can be accessed per User or Group.</p>
+
+<br class="post-pre">
+
+<p class=" after-pre">Where:</p>
+
+<ul>
+<li>First Argument
+
+<ul>
+<li>u - User that owns the file</li>
+<li>g - File's Group members</li>
+<li>o - Other users not in the file's group</li>
+<li>a - All users</li>
+</ul>
+</li>
+<li>Second Argument
+
+<ul>
+<li>
+<code>+</code> - The permission is added</li>
+<li>
+<code>-</code> - The permission is removed</li>
+<li>
+<code>=</code> - Overrides existing permissions with the specified permissions</li>
+</ul>
+</li>
+</ul>
+<section class=" h3 chmod_file_permissions"><h3 id="chmod_file_permissions">
+<code>chmod</code> File Permissions</h3>
+
+<ul>
+<li>r - Read</li>
+<li>w - Write</li>
+<li>x - Execute (also gives permission to change into a directory)</li>
+<li>X - Execute only if it is a directory or has execute permission for some user</li>
+<li>s - Set user or group ID on execution</li>
+<li>t - Sticky bit</li>
+<li>u - Permissions granted to user who owns the file</li>
+<li>g - Permissions granted to users in the file&rsquo;s group</li>
+<li>o - Permissions granted to the owner of the group and the users in the file&rsquo;s group</li>
+</ul></section><section class=" h3 examples"><h3 id="examples">Examples</h3>
+<pre class=" lang- prettyprint right"><code>chmod ug+rw &lt;filename&gt;
+</code></pre>
+
+<p>Gives the user and group read and write permissions</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>chmod -R g+r *
+</code></pre>
+<p class=" after-pre">Gives the group read permissions for all files in the current directory and any files and directories in the current directory, recursively</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>chmod o-x &lt;directory&gt;
+</code></pre>
+<p class=" after-pre">Does not let users who aren&rsquo;t the owner or in the group change into the directory</p>
+
+<br class="post-pre">
+
+</section></section><section class=" after-pre h2 unit_12_configure_general_services"><h2 id="unit_12_configure_general_services" class=" after-pre">Unit 12: Configure General Services</h2>
+
+<section class=" h3 configure_general_services"><h3 id="configure_general_services">Configure General Services</h3>
+
+</section><section class=" h3 ssh"><h3 id="ssh"><code>ssh</code></h3>
+
+<blockquote>
+<p>See Appendix: Securing Remote Logins with OpenSSH</p>
+</blockquote>
+
+</section></section><section class=" h2 unit_13_install_linux_graphically"><h2 id="unit_13_install_linux_graphically">Unit 13: Install Linux Graphically</h2>
+
+<blockquote>
+<p>AS DEMONSTRATED</p>
+</blockquote>
 
 </section><section class=" h2 unit_14_control_the_boot_process"><h2 id="unit_14_control_the_boot_process">Unit 14: Control the Boot Process</h2>
 
+<p>General view of the Linux boot process:</p>
+
+<ul>
+<li>System startup (BIOS/BootMonitor)</li>
+<li>Stage 1 bootloader (MBR)</li>
+<li>Stage 2 bootloader (LILO, GRUB, or in MS parlance, the NTLDR)</li>
+<li>Kernel</li>
+<li>init() - checks for runlevel, check for the filesystem table, star the services,etc</li>
+</ul>
+<p>Exercise : how to reset the root password ?</p>
+
+<p>Understanding runlevels.</p>
+
+<ul>
+<li>  0 - halt</li>
+<li>  1 - Single user mode</li>
+<li>  2 - Multiuser, without NFS or networking</li>
+<li>  3 - Full multiuser mode</li>
+<li>  4 - unused</li>
+<li>  5 - X11</li>
+<li>  6 - reboot</li>
+</ul>
+<p>You may also use the graphical utility to manage the services:</p>
+
+<blockquote>
+<p><img src="/images/runleveles-1.png" alt="Runlevels"></p>
+
+<p><img src="/images/runlevels-2.png" alt="Runlevels"></p>
+</blockquote>
+
 </section><section class=" h2 unit_15_intermediate_command-line_tools"><h2 id="unit_15_intermediate_command-line_tools">Unit 15: Intermediate Command-Line Tools</h2>
 
-</section><section class=" h2 unit_16_regular_expressions_pipelines_and_i_o_redirection"><h2 id="unit_16_regular_expressions_pipelines_and_i_o_redirection">Unit 16: Regular Expressions, Pipelines, and I/O Redirection</h2>
+<section class=" h3 system-config-"><h3 id="system-config-"><code>system-config-*</code></h3>
+<pre class=" lang- prettyprint right"><code>$ system-config-#tab
+</code></pre>
 
-</section><section class=" h2 unit_17_network_configuration_and_troubleshooting"><h2 id="unit_17_network_configuration_and_troubleshooting">Unit 17: Network Configuration and Troubleshooting</h2>
+<blockquote>
+<p><img src="/images/system-config-.png" alt="system-config-"></p>
+</blockquote>
 
-</section><section class=" h2 unit_18_analyzing_and_storing_logs"><h2 id="unit_18_analyzing_and_storing_logs">Unit 18: Analyzing and Storing Logs</h2>
+<br class="post-pre">
 
-</section><section class=" h2 unit_19_managing_processes"><h2 id="unit_19_managing_processes">Unit 19: Managing Processes</h2>
+<pre class=" lang- prettyprint right"><code>$ system-config-time
+</code></pre>
+<blockquote class=" after-pre">
+<p><img src="/images/system-config-time.png" alt="system-config-time"></p>
+</blockquote>
 
-</section><section class=" h1 the_end"><h1 id="the_end">The End</h1>
+<br class="post-pre">
+
+</section></section><section class=" after-pre h2 unit_16_regular_expressions_pipelines_and_i_o_redirection"><h2 id="unit_16_regular_expressions_pipelines_and_i_o_redirection" class=" after-pre">Unit 16: Regular Expressions, Pipelines, and I/O Redirection</h2>
+
+<section class=" h3 regular_expressions"><h3 id="regular_expressions">Regular Expressions</h3>
+
+<p>Commands can be executed using <code>grep</code> via the command line. The literature of Regular Expressions is not covered in this discussion, however regular expression patterns shall be discussed briefly.</p>
+
+<blockquote>
+<p><em>See <strong>Cheatsheet</strong> attached</em>.</p>
+</blockquote>
+
+</section></section><section class=" h2 unit_17_network_configuration_and_troubleshooting"><h2 id="unit_17_network_configuration_and_troubleshooting">Unit 17: Network Configuration and Troubleshooting</h2>
+
+<p>Common network configuration tools:</p>
+
+<ul>
+<li>iproute2</li>
+<li>classic route</li>
+<li>ifconfig</li>
+<li>service network</li>
+</ul></section><section class=" h2 unit_18_analyzing_and_storing_logs"><h2 id="unit_18_analyzing_and_storing_logs">Unit 18: Analyzing and Storing Logs</h2>
+
+<p>Logs are located in /var/ filesystem. Common logs that we usually check are:</p>
+
+<ul>
+<li>/var/log/boot.log</li>
+<li>/var/log/httpd</li>
+<li>/var/log/maillog</li>
+<li>/var/log/message</li>
+<li>/var/log/secure</li>
+</ul>
+<p>Useful tools include:</p>
+
+<ul>
+<li>  dmesg</li>
+<li>  lastlog</li>
+<li>  history</li>
+<li>  logrotate</li>
+<li>  redhat-logviewer (or Panel -&gt; System Tools -&gt; System Logs)</li>
+</ul></section><section class=" h2 unit_19_managing_processes"><h2 id="unit_19_managing_processes">Unit 19: Managing Processes</h2>
+
+<p>Common utlities to manage process:</p>
+
+<ul>
+<li>Terminators (kill, killall)</li>
+<li>Display (ps, pstree, top)</li>
+<li>Setting priority (nice, renice)</li>
+</ul>
+<p>In Linux we can set guidelines for the CPU to follow when it is looking at all the tasks it has to do. These guidelines are called niceness or nice value. The Linux niceness scale goes from -20 to 19. The lower the number the more priority that task gets. If the niceness value is high number like 19 the task will be set to the lowest priority and the CPU will process it whenever it gets a chance. The default nice value is zero.</p>
+
+<hr></section><section class=" h1 mysql_crash_course"><h1 id="mysql_crash_course">MySQL Crash Course</h1>
+
+<section class=" h2 selecting_a_database"><h2 id="selecting_a_database">Selecting a database</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; USE database;
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 listing_databases"><h2 id="listing_databases" class=" after-pre">Listing databases</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; SHOW DATABASES;
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 listing_tables_in_a_db"><h2 id="listing_tables_in_a_db" class=" after-pre">Listing tables in a db</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; SHOW TABLES;
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 describing_the_format_of_a_table"><h2 id="describing_the_format_of_a_table" class=" after-pre">Describing the format of a table</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; DESCRIBE table;
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 creating_a_database"><h2 id="creating_a_database" class=" after-pre">Creating a database</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; CREATE DATABASE db_name;
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 creating_a_table"><h2 id="creating_a_table" class=" after-pre">Creating a table</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; CREATE TABLE table_name
+    (field1_name TYPE(SIZE), field2_name TYPE(SIZE));
+</code></pre>
+
+<p>Syntax:</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>mysql&gt; CREATE TABLE pet (
+    name VARCHAR(20),
+    sex CHAR(1),
+    birth DATE
+    );
+</code></pre>
+<p class=" after-pre">Example:</p>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 load_tab-delimited_data_into_a_table"><h2 id="load_tab-delimited_data_into_a_table" class=" after-pre">Load tab-delimited data into a table</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; LOAD DATA LOCAL INFILE "infile.txt" INTO TABLE table_name;
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 inserting_one_row_at_a_time"><h2 id="inserting_one_row_at_a_time" class=" after-pre">Inserting one row at a time:</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; INSERT INTO table_name
+VALUES ('MyName', 'MyOwner', '2002-08-31');
+# (Use NULL for NULL)
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 retrieving_information_general"><h2 id="retrieving_information_general" class=" after-pre">Retrieving information (general):</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; SELECT from_columns FROM table WHERE conditions;
+</code></pre>
+
+<p>Syntax:</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>SELECT * FROM table;
+</code></pre>
+<p class=" after-pre">All values:</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>SELECT * FROM table WHERE rec_name = "value";
+</code></pre>
+<p class=" after-pre">Some values:</p>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>SELECT * FROM TABLE WHERE rec1 = "value1" AND rec2 = "value2";
+</code></pre>
+<p class=" after-pre">Multiple critera:</p>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 reloading_a_new_data_set_into_existing_table"><h2 id="reloading_a_new_data_set_into_existing_table" class=" after-pre">Reloading a new data set into existing table:</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; SET AUTOCOMMIT=1; # used for quick recreation of table
+mysql&gt; DELETE FROM pet;
+mysql&gt; LOAD DATA LOCAL INFILE "infile.txt" INTO TABLE table;
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 fixing_all_records_with_a_certain_value"><h2 id="fixing_all_records_with_a_certain_value" class=" after-pre">Fixing all records with a certain value:</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; UPDATE table SET
+    column_name = "new_value"
+    WHERE record_name = "value";
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 selecting_specific_columns"><h2 id="selecting_specific_columns" class=" after-pre">Selecting specific columns:</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; SELECT column_name FROM table;
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 retrieving_unique_output_records"><h2 id="retrieving_unique_output_records" class=" after-pre">Retrieving unique output records</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; SELECT DISTINCT column_name FROM table;
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 sorting"><h2 id="sorting" class=" after-pre">Sorting</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; SELECT col1, col2 FROM table ORDER BY col2;
+# Backwards:
+mysql&gt; SELECT col1, col2 FROM table ORDER BY col2 DESC;
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 date_calculations"><h2 id="date_calculations" class=" after-pre">Date calculations</h2>
+<pre class=" lang- prettyprint right"><code># Syntax
+mysql&gt; SELECT
+    CURRENT_DATE,
+    (YEAR(CURRENT_DATE)-YEAR(date_col)) AS time_diff
+    [FROM table];
+# MONTH(some_date) extracts the month
+#   value and DAYOFMONTH() extracts day.
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 pattern_matching"><h2 id="pattern_matching" class=" after-pre">Pattern Matching</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; SELECT * FROM table WHERE rec LIKE "blah%";
+# (% is wildcard - arbitrary # of chars)
+</code></pre>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>SELECT * FROM table WHERE rec like "_____";
+# (_ is any single character)
+</code></pre>
+<p class=" after-pre">Find 5-char values:</p>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 extended_regular_expression_matching"><h2 id="extended_regular_expression_matching" class=" after-pre">Extended Regular Expression Matching</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; SELECT * FROM table WHERE rec RLIKE "^b$";
+# (. for char, [...] for char class, * for 0 or more instances
+# ^ for beginning, {n} for repeat n times, and $ for end)
+# (RLIKE or REGEXP)
+</code></pre>
+
+<br class="post-pre">
+
+<section class=" after-pre h5 to_force_case-sensitivity_use_regexp_binary"><h5 class=" after-pre">To force case-sensitivity, use "REGEXP BINARY"</h5>
+
+</section></section><section class=" h2 counting_rows"><h2 id="counting_rows">Counting Rows:</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; SELECT COUNT(*) FROM table;
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 grouping_with_counting"><h2 id="grouping_with_counting" class=" after-pre">Grouping with Counting:</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; SELECT owner, COUNT(*) FROM table GROUP BY owner;
+# (GROUP BY groups together all records for each 'owner')
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 selecting_from_multiple_tables"><h2 id="selecting_from_multiple_tables" class=" after-pre">Selecting from multiple tables:</h2>
+<pre class=" lang- prettyprint right"><code># Example
+mysql&gt; SELECT
+    pet.name,
+    comment FROM pet, event
+    WHERE pet.name = event.name;
+# You can join a table to itself to compare by using 'AS'
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 currently_selected_database"><h2 id="currently_selected_database" class=" after-pre">Currently selected database</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; SELECT DATABASE();
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 maximum_value"><h2 id="maximum_value" class=" after-pre">Maximum value:</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; SELECT MAX(col_name) AS label FROM table;
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 auto-incrementing_rows"><h2 id="auto-incrementing_rows" class=" after-pre">Auto-incrementing rows:</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; CREATE TABLE table (
+    number INT NOT NULL AUTO_INCREMENT,
+    name CHAR(10) NOT NULL);
+mysql&gt; INSERT INTO table (name)
+    VALUES ("tom"),("dick"),("harry");
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 adding_a_column_to_an_already-created_table"><h2 id="adding_a_column_to_an_already-created_table" class=" after-pre">Adding a column to an already-created table:</h2>
+<pre class=" lang- prettyprint right"><code># Syntax
+mysql&gt; ALTER TABLE tbl
+    ADD COLUMN [column_create syntax]
+    AFTER col_name;
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 removing_a_column"><h2 id="removing_a_column" class=" after-pre">Removing a column:</h2>
+<pre class=" lang- prettyprint right"><code>mysql&gt; ALTER TABLE tbl DROP COLUMN col;
+# Full ALTER TABLE syntax available at mysql.com
+</code></pre>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 batch_mode_feeding_in_a_script"><h2 id="batch_mode_feeding_in_a_script" class=" after-pre">Batch mode (feeding in a script):</h2>
+<pre class=" lang- prettyprint right"><code>mysql -u user -p &lt; batch_file
+# Use -t for nice table layout and -vvv for command echoing.
+</code></pre>
+
+<br class="post-pre">
+
+<pre class=" lang- prettyprint right"><code>mysql&gt; source batch_file;
+</code></pre>
+<p class=" after-pre">Alternatively</p>
+
+<br class="post-pre">
+
+</section><section class=" after-pre h2 backing_up_a_database_with_mysqldump"><h2 id="backing_up_a_database_with_mysqldump" class=" after-pre">Backing up a database with <code>mysqldump</code>
+</h2>
+<pre class=" lang- prettyprint right"><code>mysqldump
+    --opt
+    -u username
+    -p database &gt; database_backup.sql
+# Use `mysqldump --opt --all-databases &gt; all_backup.sql`
+# to backup everything.
+#
+# More info at MySQL's docs.
+</code></pre>
+
+<br class="post-pre">
+
+<hr class=" after-pre"></section></section><section class=" h1 the_end"><h1 id="the_end">The End</h1>
 
 <p>Thanks!</p></section></div>
   <script type='text/javascript' src='http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js'></script>
