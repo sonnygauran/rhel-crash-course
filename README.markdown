@@ -8,12 +8,12 @@ And then type the following command to run the terminal.
 	# Hit `Ctrl+F2`, the type
 	gnome-terminal
 
-> ![Run Dialog](/images/run-dialog.png)
+> ![Run Dialog](/rhel-crash-course/images/run-dialog.png)
 	
 or run the terminal through the main menu
 
-> ![Gnome-terminal icon](/images/main-menu-gnome-terminal.png)
-> ![Gnome-terminal](/images/gnome-terminal.png)
+> ![Gnome-terminal icon](/rhel-crash-course/images/main-menu-gnome-terminal.png)
+> ![Gnome-terminal](/rhel-crash-course/images/gnome-terminal.png)
 
 ## Unit 1: Getting Started with the GNOME Graphical Desktop
 There are many available graphical applications to the gnome desktop.
@@ -35,8 +35,8 @@ existing files or files that will be created after *Save* or hitting `Ctrl+S`
 	
 The gnome editor is also accessible via the Main Menu.
 
-> ![Gnome Edit Menu](/images/main-menu-gedit.png)
-> ![Gnome Edit](/images/gedit.png)
+> ![Gnome Edit Menu](/rhel-crash-course/images/main-menu-gedit.png)
+> ![Gnome Edit](/rhel-crash-course/images/gedit.png)
 
 ## Unit 2: Manage Files Graphically with `nautilus`
 To start the file browser, you can execute the following command.
@@ -45,8 +45,8 @@ To start the file browser, you can execute the following command.
 
 Or just click on the Home icon.
 
-> ![Home icon](/images/home-icon.png)
-> ![Nautilus](/images/nautilus.png)
+> ![Home icon](/rhel-crash-course/images/home-icon.png)
+> ![Nautilus](/rhel-crash-course/images/nautilus.png)
 
 
 ## Unit 3: Configure Local Services
@@ -54,13 +54,13 @@ Here, we configure show how to configure the clock and view running processes.
 
 Right-click the Clock on the upper-right corner and tweak by selecting *Adjust Date & Time*.
 
-> ![Home icon](/images/clock-adjust.png)
+> ![Home icon](/rhel-crash-course/images/clock-adjust.png)
 
 ## Unit 4: Manage Physical Storage
 
 To list available partitions
 
-> ![Available Partitions](/images/fdisk-l.png)
+> ![Available Partitions](/rhel-crash-course/images/fdisk-l.png)
 
 	$ fdisk -l
 
@@ -75,22 +75,22 @@ What to monitor:
 
 1. free. The free command displays system memory utilization. 
 
-> ![free](/images/unit_5-free.png)
+> ![free](/rhel-crash-course/images/unit_5-free.png)
 
 2. top. The top command displays pretty much everything. CPU utilization, process statistics, memory utilization — top monitors it all. In addition, unlike the free command, top's default behavior is to run continuously; there is no need to use the watch command.
 
-> ![top](/images/unit_5_1.png)
+> ![top](/rhel-crash-course/images/unit_5_1.png)
 
 3. The GNOME System Monitor. If you are more comfortable with graphical user interfaces, the GNOME System Monitor may be more to your liking. Like top, the GNOME System Monitor displays information related to overall system status, process counts, memory and swap utilization, and process-level statistics.
 
 However, the GNOME System Monitor goes a step further by also including graphical representations of CPU, memory, and swap utilization, along with a tabular disk space utilization listing.
 
-> ![GNOME System Monitor](/images/unit_5-gnome_system_monitor2.png)
+> ![GNOME System Monitor](/rhel-crash-course/images/unit_5-gnome_system_monitor2.png)
 
 4. df and du. The df command reports filesystem disk usage. du estimates the filesystem usage.
 
-> ![top](/images/unit_5-df.png)
-> ![top](/images/unit_5-du1.png)
+> ![top](/rhel-crash-course/images/unit_5-df.png)
+> ![top](/rhel-crash-course/images/unit_5-du1.png)
 
 	
 ## Unit 6: Manage System Software
@@ -601,7 +601,7 @@ For example the file `ifcfg-eth0` if for the first ethernet interface,
 
 An example output:
 
-> ![Eth0](/images/ifcfg-eth0.png)
+> ![Eth0](/rhel-crash-course/images/ifcfg-eth0.png)
 
 Unless you know what you're doing it is best to use a network configuration tool.
 
@@ -711,17 +711,17 @@ Managing users and groups can be a tedious task, but Red Hat Enterprise Linux pr
 The easiest way to manage users and groups is through the graphical application, User Manager (system-config-users). 
 
 
-> ![User and Groyp Management](/images/ug1.png)
+> ![User and Groyp Management](/rhel-crash-course/images/ug1.png)
 
-> ![User and Groyp Management](/images/ug2.png)
+> ![User and Groyp Management](/rhel-crash-course/images/ug2.png)
 
-> ![User and Groyp Management](/images/ug3.png)
+> ![User and Groyp Management](/rhel-crash-course/images/ug3.png)
 
-> ![User and Groyp Management](/images/ug4.png)
+> ![User and Groyp Management](/rhel-crash-course/images/ug4.png)
 
-> ![User and Groyp Management](/images/ug5.png)
+> ![User and Groyp Management](/rhel-crash-course/images/ug5.png)
 
-> ![User and Groyp Management](/images/ug6.png)
+> ![User and Groyp Management](/rhel-crash-course/images/ug6.png)
 
 
 
@@ -851,20 +851,20 @@ Understanding runlevels.
 
 You may also use the graphical utility to manage the services:
 
-> ![Runlevels](/images/runleveles-1.png)
+> ![Runlevels](/rhel-crash-course/images/runleveles-1.png)
 
-> ![Runlevels](/images/runlevels-2.png)
+> ![Runlevels](/rhel-crash-course/images/runlevels-2.png)
 
 
 ## Unit 15: Intermediate Command-Line Tools
 
 ### `system-config-*`
 
-> ![system-config-](/images/system-config-.png)
+> ![system-config-](/rhel-crash-course/images/system-config-.png)
 
 	$ system-config-#tab
 
-> ![system-config-time](/images/system-config-time.png)
+> ![system-config-time](/rhel-crash-course/images/system-config-time.png)
 
 	$ system-config-time
 
