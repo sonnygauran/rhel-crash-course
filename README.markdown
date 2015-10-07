@@ -226,7 +226,7 @@ Before executing your script, you should make the script executable. You do it b
 
 	$ chmod ugo+x your_shell_script.sh
 
-The name of your shell script must end with a `.sh`. This lets the user know that the file is a shell script. This is not compulsary but is the norm.
+The name of your shell script must end with a `.sh`. This lets the user know that the file is a shell script. This is not compulsory but is the norm.
 
 ### Conditional Statements
 
